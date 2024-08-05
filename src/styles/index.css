@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+main {
+    min-height: 100vh;
+}
+
+* input {
+    outline: none;
+}
+
+.day {
+    background: linear-gradient(180deg, #000000 0%, #160a46 100%), radial-gradient(60.91% 100% at 50% 0%, #FFD1D1 0%, #000eed 100%), linear-gradient(238.72deg, #a1a1a1 0%, #000dd9 100%), linear-gradient(127.43deg, #17a5a5 0%, #000000 100%), radial-gradient(100.22% 100% at 70.57% 0%, #1100dc 0%, #00665a 100%), linear-gradient(127.43deg, #cce33e 0%, #2d77ce 100%);
+    background-blend-mode: screen, overlay, hard-light, color-burn, color-dodge, normal;
+}
+
+.night {
+    background: linear-gradient(180deg, #050518 0%, #000000 100%), radial-gradient(60.91% 100% at 50% 0%, #000000 0%, #3e49ff 100%), linear-gradient(238.72deg, #a57777 0%, #7a0000 100%), linear-gradient(127.43deg, #e2ffff 0%, #000000 100%), radial-gradient(100.22% 100% at 70.57% 0%, #000000 0%, #a5a5a5 100%), linear-gradient(127.43deg, #000000 0%, #4a9dff 100%);
+    background-blend-mode: screen, overlay, hard-light, color-burn, color-dodge, normal;
+    width: 0%;
+    height: 0%;
+    border-radius: 100%;
+    transition: all 300ms ease-in-out;
+    right: 0;
+}
+
+.night.night--active {
+    width: 100%;
+    height: 100%;
+    border-radius: 0%;
+}
+
+.card {
+    &.day {
+        background: white;
+    }
+
+    &.night {
+        background: #000;
+    }
+}
+
+.number {
+    opacity: 0;
+    display: inline-block;
+    animation: flipInY 1s forwards;
+    animation-delay: 100ms;
+}
+
+.time__img--in {
+    animation: bounceInDown 1s forwards;
+}
+
+.time__img--out {
+    animation: bounceOutUp 1s forwards;
+}
+
+@keyframes bounceInDown {
+
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transform: translateY(0);
+    }
+
+    60% {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transform: translateY(-20px);
+    }
+
+    75% {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transform: translateY(10px);
+    }
+
+    90% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounceOutUp {
+    20% {
+        transform: translateY(10px);
+    }
+
+    40%,
+    45% {
+        opacity: 1;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-2000px);
+    }
+}
+
+@keyframes flipInY {
+    from {
+        transform: perspective(400px) rotateY(90deg);
+        opacity: 0;
+    }
+
+    40% {
+        transform: perspective(400px) rotateY(-10deg);
+    }
+
+    70% {
+        transform: perspective(400px) rotateY(10deg);
+    }
+
+    100% {
+        transform: perspective(400px) rotateY(0);
+        opacity: 1;
+    }
+}
