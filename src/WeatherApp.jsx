@@ -31,14 +31,11 @@ export const WeatherApp = () => {
             
             const timeIcon = data.weather[0].icon
             const afterMode = getMode(data.weather[0].icon)
-            
-            if (beforeMode != '') {
-                if (beforeMode != afterMode) {
-                    setBeforeMode(afterMode)
-                    setTimeout(() => { setTimeIcon(timeIcon) }, 1000);
-                } else {
-                    setTimeIcon(timeIcon)
-                }
+
+            if (beforeMode != afterMode) {
+                setBeforeMode(afterMode)
+                if (beforeMode == '') return setTimeIcon(timeIcon)
+                setTimeout(() => { setTimeIcon(timeIcon) }, 1000);
             } else {
                 setTimeIcon(timeIcon)
             }
