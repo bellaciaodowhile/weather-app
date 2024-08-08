@@ -62,7 +62,7 @@ export const WeatherApp = () => {
                     {  
                         dataWeather && (
                             <div className="flex flex-col items-center text-white">
-                                <img src={`./images/${timeIcon}.png`} alt="Icon WeatherApp" className="max-w-56 mt-5 time__img time__img--in opacity-0 h-44" />
+                                <img src={`./images/${timeIcon}.webp`} alt="Icon WeatherApp" className="max-w-56 mt-5 time__img time__img--in opacity-0 h-44" />
                                 <div className="flex">
                                     <p className="text-7xl sm:text-9xl font-bold numbers" dangerouslySetInnerHTML={{ __html: diff(dataWeather?.main?.temp)}}></p>
                                     <span className="text-xl mt-3 font-bold">°</span>
