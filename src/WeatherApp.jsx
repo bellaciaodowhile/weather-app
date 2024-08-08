@@ -32,6 +32,8 @@ export const WeatherApp = () => {
             const timeIcon = data.weather[0].icon
             const afterMode = getMode(data.weather[0].icon)
 
+            setMode(afterMode)
+
             if (beforeMode != afterMode) {
                 setBeforeMode(afterMode)
                 if (beforeMode == '') return setTimeIcon(timeIcon)
@@ -41,8 +43,6 @@ export const WeatherApp = () => {
             }
 
             timeAnimation(beforeMode, afterMode);
-
-            setMode(afterMode)
             setSearch('');
 
         } catch (error) {
